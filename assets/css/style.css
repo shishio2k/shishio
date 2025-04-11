@@ -1,0 +1,724 @@
+* {
+    box-sizing: border-box;
+}
+/* System font: font chữ mặc định có sẵn trong máy tính */
+:root {
+    --color-1: #0396ff;
+    --color-2: #7367f0;
+    --color-3: #32ccbc;
+    --color-4: #f55555;
+    --color-5: #ffd503;
+    --color-6: #ff0396;
+    --font-1: "Anton", sans-serif;
+    --font-2: "Sofia", cursive;
+    --font-3: "Be Vietnam Pro", sans-serif;
+    --font-4: "Carattere", cursive;
+    --font-5: "Playball", cursive;
+    --font-system: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+html:focus-within {
+    scroll-behavior: smooth;
+}
+/* 
+    Ta dùng mẹo như sau:
+    1 rem = 16px = 100%
+    1 rem = 10px = 62.5%
+    lúc này ta muốn chuyển 1 px nào đó qua rem thì chỉ cần chia cho 10px
+    vd: width: 50px = 5rem ( còn như thông thường 50px / 16px = 3.125rem)  
+*/
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: var(--font-system);
+
+    line-height: 1.6;
+    /* heading h2 = 0 */
+    counter-reset: heading-h2;
+}
+main {
+    margin: 50px 0;
+}
+.content {
+    width: 100%;
+    max-width: calc(100% - 64px);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+::selection {
+    background: var(--color-2);
+    color: #fff;
+}
+
+h1 {
+    margin: 28px 0;
+    font-family: var(--font-1);
+    color: var(--color-2);
+    font-size: 4.6rem;
+    font-weight: 700;
+    text-shadow: 3px 3px 3px rgba(142, 113, 246, 0.7);
+}
+
+h2 {
+    margin: 40px 0 20px;
+    display: block;
+    font-family: var(--font-1);
+    color: var(--color-1);
+    font-size: 2.6rem;
+    font-weight: 600;
+    /* Mỗi lần gặp thẻ h2 sẽ tăng +1  */
+    counter-increment: heading-h2;
+    /* đặt cho heading-h3 = 0 mỗi khi gặp thẻ h2 
+        -> reset thẻ h3 về 0 khi gặp thẻ h2
+    */
+    counter-reset: heading-h3;
+}
+
+h2::before {
+    content: counter(heading-h2) " - ";
+}
+
+h3 {
+    margin: 32px 0 16px;
+    font-family: var(--font-system);
+    font-size: 2.4rem;
+    font-weight: 500;
+    color: var(--color-3);
+    /* Mỗi lần gặp thẻ h3 sẽ tăng +1 */
+    counter-increment: heading-h3;
+    /* đặt cho heading-h4 = 0 mỗi khi gặp thẻ h3 
+        -> reset thẻ h4 về 0 khi gặp thẻ h3
+    */
+    counter-reset: heading-h4;
+}
+
+h3::before {
+    content: counter(heading-h2) "." counter(heading-h3) " - ";
+}
+
+h4 {
+    margin: 32px 0 16px;
+    font-family: var(--font-system);
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: var(--color-5);
+    text-shadow: 0px 1px rgba(182, 151, 0, 0.7);
+    /* Mỗi lần gặp thẻ h4 sẽ tăng +1  */
+    counter-increment: heading-h4;
+    counter-reset: heading-h5;
+}
+
+h4::before {
+    content: counter(heading-h2) "." counter(heading-h3) "." counter(heading-h4)
+        " ";
+    margin-right: 14px;
+}
+
+h5 {
+    margin: 32px 0 16px;
+    font-family: var(--font-system);
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--color-2);
+
+    /* Mỗi lần gặp thẻ h5 sẽ tăng +1  */
+    counter-increment: heading-h5;
+}
+
+h5::before {
+    content: counter(heading-h2) "." counter(heading-h3) "." counter(heading-h4)
+        "." counter(heading-h5) " ";
+    margin-right: 14px;
+}
+
+strong {
+    font-family: var(--font-3);
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+note,
+note-1,
+span,
+example {
+    color: var(--color-4);
+    font-size: 1.8rem;
+    font-family: var(--font-3);
+    font-weight: 500;
+}
+
+note-2 {
+    margin: 10px 0;
+    display: block;
+    color: var(--color-6);
+    font-family: var(--font-1);
+    font-size: 2.2rem;
+    font-weight: 500;
+}
+
+example {
+    margin: 24px 0 12px;
+    display: block;
+    color: #000;
+    line-height: 2;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+a {
+    text-decoration: none;
+}
+
+.line-2row {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+span {
+    color: #000;
+}
+
+note-1 {
+    color: var(--color-2);
+}
+
+ol > li {
+    font-size: 1.8rem;
+    font-family: var(--font-3);
+}
+
+pre {
+    display: inline-block;
+    width: 800px;
+    max-height: 400px;
+}
+
+pre::-webkit-scrollbar {
+    width: 14px;
+}
+
+pre::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 2px rgba(22, 24, 35, 0.2);
+    background-color: #f5f5f5;
+}
+
+pre::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(-45deg, #6a5af9, #d66efd);
+    border-radius: 50px;
+}
+
+.content-main {
+    width: 800px;
+    font-size: 1.6rem;
+    margin: 50px 0 50px 32px;
+}
+
+/* justify-content */
+.container {
+    display: flex;
+    background: #f9ebc7;
+    padding: 20px;
+    justify-content: space-evenly;
+}
+
+.item {
+    font-size: 18px;
+    font-family: var(--font-3);
+}
+
+/* align-items */
+.align-items {
+    display: flex;
+    min-height: 150px;
+    background: #f9ebc7;
+    justify-content: space-evenly;
+    align-items: flex-end;
+}
+
+.align-items .item {
+    width: 30%;
+}
+
+/* align-content */
+.align-content {
+    display: flex;
+    background: #f9ebc7;
+    min-height: 300px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: space-evenly;
+}
+.align-content .item {
+    width: 30%;
+    min-height: 80px;
+}
+
+/* flex-wrap */
+.flex-wrap {
+    display: flex;
+    background: #f9ebc7;
+    min-height: 100px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.flex-wrap .item {
+    width: 48%;
+    margin: 4px;
+}
+/* align-self */
+.align-self {
+    display: flex;
+    background: #f9ebc7;
+    min-height: 100px;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+.align-self .item:nth-child(3) {
+    align-self: center;
+}
+/* flex-grow */
+.flex-grow,
+.flex-grow-2 {
+    display: flex;
+    background: #f9ebc7;
+    min-height: 100px;
+}
+
+.flex-grow .item {
+    flex-grow: 1;
+}
+
+.flex-grow .item:nth-child(2) {
+    flex-grow: 3;
+}
+
+.flex-grow-2 .item:nth-child(1) {
+    flex-grow: 1;
+}
+.flex-grow-2 .item:nth-child(2) {
+    flex-grow: 2;
+}
+/* flex-shrink */
+.flex-shrink,
+.flex-shrink-begin {
+    display: flex;
+    background: #f9ebc7;
+    min-height: 100px;
+}
+.flex-shrink .item,
+.flex-shrink-begin .item {
+    width: 20%;
+    margin: 4px;
+}
+
+.flex-shrink .item:nth-child(3) {
+    flex-shrink: 0;
+}
+/* flex-basis */
+.flex-basis {
+    overflow-x: auto;
+    display: flex;
+    background: #f9ebc7;
+    min-height: 100px;
+}
+.flex-basis .item {
+    flex-basis: 30%;
+    flex-shrink: 0;
+    flex-grow: 1;
+    border: 1px solid #ccc;
+}
+
+.flex-basis .item:nth-child(2) {
+    flex-basis: 100px;
+}
+/* order */
+.order {
+    display: flex;
+    background: #f9ebc7;
+    min-height: 100px;
+    justify-content: space-evenly;
+}
+.order .item {
+    flex: 0 0 30%;
+}
+.order .item:nth-child(3) {
+    order: 2;
+}
+.order .item:nth-child(2) {
+    order: 3;
+}
+
+/* Header */
+.header {
+    width: 100%;
+    top: 0px;
+    position: sticky;
+    background: #000;
+    opacity: 0.9;
+    z-index: 50;
+}
+
+.header .content {
+    display: flex;
+    align-items: center;
+}
+
+.header .logo {
+    height: 40px;
+    object-fit: cover;
+}
+
+.header img {
+    max-width: 100%;
+}
+.header a {
+    font-size: 3.2rem;
+    color: #fff;
+    font-family: var(--font-4);
+}
+.header .menu {
+    display: flex;
+    margin-left: 100px;
+    position: relative;
+    width: 100%;
+}
+.header .menu a {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    font-size: 2.2rem;
+    padding: 0 20px;
+    line-height: 1.6;
+}
+
+.header .drop-menu {
+    position: absolute;
+    top: 100%;
+    display: none;
+    min-width: 150px;
+    background: #000000f3;
+    z-index: 60;
+}
+.drop-menu li a {
+    padding: 10px 15px;
+    color: white;
+}
+
+.menu > li:hover {
+    background: var(--color-1);
+    border-radius: 4px;
+}
+.menu li:hover .drop-menu {
+    display: block;
+}
+.drop-menu li {
+    border-bottom: 1px dashed #ccc;
+    padding: 4px 0;
+}
+.drop-menu a {
+    padding: 4px 20px;
+}
+.drop-menu li:hover {
+    background: var(--color-4);
+    border-radius: 0;
+}
+
+/*  footer */
+.footer {
+    padding: 60px 0 30px 0;
+    margin-top: 50px;
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+}
+.footer .list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-evenly;
+}
+
+.footer .item {
+    display: inline-block;
+    width: 32%;
+}
+
+.footer .title {
+    font-size: 3.2rem;
+    color: var(--color-4);
+    font-family: var(--font-4);
+    font-weight: 500;
+}
+
+.footer .desc {
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #fff;
+}
+
+.footer .desc strong {
+    font-family: var(--font-4);
+    font-size: 2.2rem;
+    color: var(--color-4);
+}
+.footer .social {
+    margin-top: 15px;
+}
+.footer .social i {
+    color: var(--color-4);
+    margin-right: 10px;
+}
+.footer .social p {
+    font-family: var(--font-5);
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 2;
+}
+.footer .copyright {
+    text-align: center;
+    padding-top: 30px;
+    font-size: 1.8rem;
+    font-family: var(--font-3);
+    font-weight: 400;
+}
+
+.footer .copyright::before {
+    content: ""; /* Bắt buộc phải có */
+    display: block; /* Cho phép đặt width và margin */
+    width: 60%; /* Kéo dài hết chiều rộng */
+    margin-left: auto;
+    margin-right: auto;
+    border-top: 1px solid #5c5c5c; /* Đường viền bạn muốn */
+    margin-bottom: 15px;
+}
+
+.footer .blog-content .content-blog {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.footer .item-blog img {
+    width: 100%;
+    height: 78px;
+    border-radius: 4px;
+    object-fit: cover;
+    object-position: top center;
+}
+.footer .item-blog .blog-detail {
+    color: #fff;
+    font-family: var(--font-3);
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.4;
+}
+.footer .item-blog .blog-detail .readmore {
+    color: var(--color-5);
+    font-size: 1.4rem;
+    display: inline-block;
+}
+
+.footer .item-blog .readmore:hover {
+    text-decoration: underline;
+}
+
+.footer .item-blog {
+    padding-bottom: 10px;
+    border-bottom: 1px dotted #ccc;
+}
+
+.footer .blog-content {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+}
+/* footer column 3 */
+
+.footer .slide-blog {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 20px;
+}
+
+.footer .item-slide img {
+    width: 100%;
+    height: 220px;
+    border-radius: 10px;
+}
+.footer .slide-blog .blog-detail {
+    color: #fff;
+    font-family: var(--font-3);
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.4;
+}
+.footer .item-slide .readmore {
+    color: var(--color-5);
+    font-size: 1.4rem;
+    display: inline-block;
+}
+
+/* .footer .item32 {
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+
+.blog-slider-container {
+    /* Giảm max-width để 2 item gần nhau hơn một chút */
+    max-width: 650px;
+    width: 100%; /* Thêm width % để linh hoạt hơn */
+    /* margin: 20px auto; */
+    position: relative; /* Quan trọng cho việc định vị nút */
+    overflow: hidden;
+}
+
+.slides-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    /* Quan trọng: không để khoảng trống giữa các flex item */
+    font-size: 0;
+    gap: 10px;
+}
+
+.slide-item {
+    flex: 0 0 calc(50% - 5px); /* Giải thích bên dưới */
+    max-width: calc(50% - 5px); /* Đồng bộ với flex-basis */
+    box-sizing: border-box;
+
+    /* === BỎ HOẶC SỬA DÒNG NÀY === */
+    /* padding: 0 15px; */ /* Bỏ hoàn toàn dòng này */
+    /* HOẶC đặt thành 0 nếu bạn có padding top/bottom cần giữ: */
+    /* padding: 0; */
+
+    /* Các thuộc tính khác giữ nguyên */
+    font-size: 1rem;
+    /* display: inline-block; */ /* Không cần thiết khi dùng flex và gap */
+    vertical-align: top; /* Vẫn có thể hữu ích nếu item có chiều cao khác nhau */
+    position: relative;
+}
+
+.slide-item-content {
+    /* Bọc nội dung để dễ quản lý */
+    background-color: #111; /* Nền tối nhẹ cho phần text nếu cần */
+    border-radius: 8px; /* Bo góc cho cả khối */
+    overflow: hidden; /* Đảm bảo ảnh không tràn ra ngoài */
+    display: flex; /* Sắp xếp ảnh và text */
+    flex-direction: column;
+}
+
+.slide-item img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+    background-color: #1a1a1a;
+}
+
+.slide-text {
+    /* Phần chứa tiêu đề và link */
+    padding: 10px 15px;
+}
+
+.slide-text .title {
+    font-size: 1.6rem;
+    line-height: 1.3;
+    margin-bottom: 5px;
+    color: #ccc;
+    /* white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; */
+    font-family: var(--font-3);
+}
+
+.slide-text .read-more {
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    color: var(--color-5);
+    font-size: 1.4rem;
+}
+
+.slide-text .read-more:hover {
+    text-decoration: underline;
+}
+
+/* --- Nút điều hướng - Định vị trực tiếp --- */
+.slider-btn {
+    position: absolute;
+    top: 35%; /* Điều chỉnh vị trí theo chiều dọc (cao hơn) */
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6); /* Nền đậm hơn */
+    color: white;
+    border: none;
+    width: 40px; /* Kích thước nút */
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2em; /* Giảm cỡ chữ icon */
+    line-height: 40px; /* Căn giữa icon theo chiều dọc */
+    text-align: center;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+    opacity: 0.7; /* Hơi mờ đi khi không hover */
+}
+.slider-btn:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+    opacity: 1; /* Rõ hơn khi hover */
+}
+.slider-btn:disabled {
+    opacity: 0.2; /* Mờ hẳn đi khi bị disable */
+    cursor: not-allowed;
+    background-color: rgba(50, 50, 50, 0.5); /* Màu nền khi disable */
+}
+
+#prevBtn {
+    left: 25px; /* Khoảng cách từ mép trái container */
+}
+
+#nextBtn {
+    right: 25px; /* Khoảng cách từ mép phải container */
+}
+
+/* Responsive: Hiển thị 1 slide trên màn hình nhỏ */
+@media (max-width: 600px) {
+    .slide-item {
+        /* Khi chỉ có 1 slide, không cần trừ gap */
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .slides-wrapper {
+        /* Có thể không cần gap khi chỉ có 1 item, hoặc giữ nguyên nếu muốn */
+        gap: 0;
+    }
+    .blog-slider-container {
+        max-width: 95%;
+    }
+    /* Điều chỉnh vị trí nút trên mobile */
+    .slider-btn {
+        top: 30%;
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        font-size: 1em;
+    }
+    #prevBtn {
+        left: 10px;
+    }
+    #nextBtn {
+        right: 10px;
+    }
+}
