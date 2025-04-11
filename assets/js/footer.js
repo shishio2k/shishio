@@ -174,7 +174,7 @@ function includeHTML(filePath, targetElementId, callback) {
 // ============================================
 
 // Chèn header (không cần callback phức tạp nếu header không có slider)
-includeHTML("header.html", "header-placeholder");
+includeHTML("../header.html", "header-placeholder");
 
 // Chèn footer VÀ chỉ định hàm initializeBlogSlider làm callback
-includeHTML("footer.html", "footer-placeholder", initializeBlogSlider);
+includeHTML("../footer.html", "footer-placeholder", initializeBlogSlider);
