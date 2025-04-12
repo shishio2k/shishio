@@ -591,6 +591,10 @@ pre::-webkit-scrollbar-thumb {
 /* B. Hiển thị submenu khi LI cha có class 'submenu-open' (JS sẽ thêm class này) */
 .header.menu-open .menu li.submenu-open > .drop-menu {
     display: block;
+    background-color: #ebebeb;
+}
+.header.menu-open .menu li.submenu-open > .drop-menu a{
+    color: #242424;
 }
 
 /* C. Tạo kiểu cho các mục con trong submenu */
