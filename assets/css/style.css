@@ -440,8 +440,10 @@ pre::-webkit-scrollbar-thumb {
 /* Adjust breakpoint as needed (e.g., 992px for larger tablets, 768px common) */
 @media (max-width: 992px) {
     .header .content {
-        /* Keep space-between for logo and hamburger */
-        padding: 0 15px; /* Adjust mobile padding */
+        display: flex; /* Đảm bảo là flex container */
+        justify-content: space-between; /* ĐẨY logo và nút toggle ra 2 phía */
+        align-items: center; /* Căn giữa theo chiều dọc */
+        padding: 0 20px;
     }
 
     /* --- Hamburger Icon --- */
