@@ -1,136 +1,113 @@
 // ============================================
-// HÀM KHỞI TẠO SLIDER (Đặt hàm này LÊN TRÊN)
+// HÀM TÍNH TOÁN ĐƯỜNG DẪN GỐC TƯƠNG ĐỐI
+// ============================================
+function getBasePath() {
+    // Lấy đường dẫn của trang hiện tại, ví dụ: "/shishio/" hoặc "/shishio/rdr2/"
+    const pathname = window.location.pathname;
+
+    // Tách đường dẫn thành các phần, loại bỏ các phần tử rỗng (do dấu / ở đầu/cuối)
+    // Ví dụ: "/shishio/" -> ["shishio"]
+    // Ví dụ: "/shishio/rdr2/" -> ["shishio", "rdr2"]
+    // Ví dụ: "/shishio/opfp/somepage.html" -> ["shishio", "opfp", "somepage.html"]
+    const pathSegments = pathname.split('/').filter(segment => segment.length > 0);
+
+    // Giả định rằng segment đầu tiên luôn là tên repo trên GitHub Pages project site
+    // Số lượng segment *sau* tên repo cho biết độ sâu thư mục so với gốc repo
+    const depth = Math.max(0, pathSegments.length - 1); // Độ sâu là số segment trừ đi 1 (tên repo)
+
+    // Tạo tiền tố đường dẫn: lặp lại '../' cho mỗi cấp độ sâu
+    // Nếu depth = 0 (ở gốc repo), tiền tố là './'
+    // Nếu depth = 1 (như rdr2/), tiền tố là '../'
+    // Nếu depth = 2 (như abc/xyz/), tiền tố là '../../'
+    const prefix = depth === 0 ? './' : '../'.repeat(depth);
+
+    // console.log(`Pathname: ${pathname}, Depth: ${depth}, BasePath: ${prefix}`); // Dùng để debug nếu cần
+    return prefix;
+}
+
+
+// ============================================
+// HÀM KHỞI TẠO SLIDER (Giữ nguyên không đổi)
 // ============================================
 function initializeBlogSlider() {
-    console.log("Attempting to initialize blog slider inside footer..."); // Log để kiểm tra
-
-    // Tìm các element BÊN TRONG #footer-placeholder sau khi nó được load
+    console.log("Attempting to initialize blog slider inside footer...");
     const footerPlaceholder = document.getElementById("footer-placeholder");
     if (!footerPlaceholder) {
         console.error("Footer placeholder element not found!");
         return;
     }
-
-    // QuerySelector từ bên trong footerPlaceholder để đảm bảo phạm vi đúng
     const slidesWrapper = footerPlaceholder.querySelector(".slides-wrapper");
     const slides = footerPlaceholder.querySelectorAll(".slide-item");
-    const prevBtn = footerPlaceholder.querySelector("#prevBtn"); // Sử dụng querySelector cho ID cũng được
+    const prevBtn = footerPlaceholder.querySelector("#prevBtn");
     const nextBtn = footerPlaceholder.querySelector("#nextBtn");
     const container = footerPlaceholder.querySelector(".blog-slider-container");
 
-    // --- Kiểm tra quan trọng ---
-    if (
-        !slidesWrapper ||
-        !prevBtn ||
-        !nextBtn ||
-        !container ||
-        slides.length === 0
-    ) {
-        console.error(
-            "Slider elements (wrapper, buttons, container, or items) not found within the loaded footer content!"
-        );
-        // In ra các element tìm được để debug:
+    if (!slidesWrapper || !prevBtn || !nextBtn || !container || slides.length === 0) {
+        console.error("Slider elements not found within the loaded footer content!");
         console.log("slidesWrapper:", slidesWrapper);
         console.log("prevBtn:", prevBtn);
         console.log("nextBtn:", nextBtn);
         console.log("container:", container);
         console.log("slides count:", slides.length);
-        return; // Dừng nếu thiếu element
+        return;
     }
     console.log("Slider elements found. Initializing...");
 
-    // --- Code Lõi Của Slider (Giữ nguyên từ các ví dụ trước) ---
     let currentIndex = 0;
     let totalSlides = slides.length;
-    let slidesToShow = 2; // Mặc định
+    let slidesToShow = 2;
 
     function updateSlidesToShow() {
         const oldSlidesToShow = slidesToShow;
-        if (window.innerWidth <= 600) {
-            slidesToShow = 1;
-        } else {
-            slidesToShow = 2;
-        }
-
+        if (window.innerWidth <= 600) slidesToShow = 1; else slidesToShow = 2;
         if (oldSlidesToShow !== slidesToShow) {
             const itemWidthPercentage = 100 / slidesToShow;
-            slides.forEach((slide) => {
-                // Quan trọng: đảm bảo áp dụng style đúng
+            slides.forEach(slide => {
                 slide.style.flex = `0 0 ${itemWidthPercentage}%`;
                 slide.style.maxWidth = `${itemWidthPercentage}%`;
             });
         }
-        // Điều chỉnh index nếu cần sau khi thay đổi slidesToShow
-        if (currentIndex > totalSlides - slidesToShow) {
-            currentIndex = Math.max(0, totalSlides - slidesToShow);
-        }
-        updateSliderPosition();
-        updateButtonStates();
+        if (currentIndex > totalSlides - slidesToShow) currentIndex = Math.max(0, totalSlides - slidesToShow);
+        updateSliderPosition(); updateButtonStates();
     }
-
     function updateSliderPosition() {
-        // Phải chắc chắn container có width > 0 khi hàm này chạy
-        if (container.offsetWidth === 0) {
-            console.warn("Slider container has zero width. Check CSS.");
-            // Có thể thử gọi lại sau một khoảng trễ nhỏ nếu CSS chưa kịp áp dụng
-            // setTimeout(updateSliderPosition, 100);
-            // return;
-        }
+        if (container.offsetWidth === 0) { console.warn("Slider container has zero width."); }
         const containerWidth = container.offsetWidth;
         const slideWidth = containerWidth / slidesToShow;
         const offset = -currentIndex * slideWidth;
-        // Debug: console.log(`Index: ${currentIndex}, SlideWidth: ${slideWidth.toFixed(2)}, Offset: ${offset.toFixed(2)}`);
         slidesWrapper.style.transform = `translateX(${offset}px)`;
     }
-
     function updateButtonStates() {
         prevBtn.disabled = currentIndex === 0;
         nextBtn.disabled = currentIndex >= totalSlides - slidesToShow;
-        // Debug: console.log(`Buttons Updated - Prev: ${prevBtn.disabled}, Next: ${nextBtn.disabled}`);
     }
-
-    // --- Event Listeners ---
     nextBtn.addEventListener("click", () => {
-        if (currentIndex < totalSlides - slidesToShow) {
-            currentIndex++;
-            updateSliderPosition();
-            updateButtonStates();
-        }
+        if (currentIndex < totalSlides - slidesToShow) { currentIndex++; updateSliderPosition(); updateButtonStates(); }
     });
-
     prevBtn.addEventListener("click", () => {
-        if (currentIndex > 0) {
-            currentIndex--;
-            updateSliderPosition();
-            updateButtonStates();
-        }
+        if (currentIndex > 0) { currentIndex--; updateSliderPosition(); updateButtonStates(); }
     });
-
-    let resizeTimer;
-    window.addEventListener("resize", () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => {
-            // Debug: console.log('Window Resized');
-            updateSlidesToShow();
-        }, 150);
-    });
-
-    // --- Khởi tạo Slider ---
+    let resizeTimer; window.addEventListener("resize", () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(updateSlidesToShow, 150); });
     console.log(`Initial Total Slides found: ${totalSlides}`);
-    updateSlidesToShow(); // Chạy lần đầu để thiết lập
+    updateSlidesToShow();
     console.log("Blog slider initialized successfully inside footer.");
 }
 
+
 // ============================================
-// HÀM includeHTML (Đã sửa đổi để có callback)
+// HÀM includeHTML (SỬA ĐỔI ĐỂ DÙNG getBasePath)
 // ============================================
-function includeHTML(filePath, targetElementId, callback) {
-    // Thêm tham số callback
-    fetch(filePath)
+function includeHTML(fileName, targetElementId, callback) { // Đổi tên tham số đầu thành fileName
+    const basePath = getBasePath(); // Lấy tiền tố đường dẫn đúng
+    const fullPath = basePath + fileName; // Ghép tiền tố với tên file (ví dụ: './header.html' hoặc '../header.html')
+
+    console.log(`Fetching: ${fullPath}`); // Log để kiểm tra đường dẫn cuối cùng
+
+    fetch(fullPath) // Sử dụng đường dẫn đã tính toán
         .then((response) => {
             if (!response.ok) {
                 throw new Error(
-                    `HTTP error! status: ${response.status} for ${filePath}`
+                    `HTTP error! status: ${response.status} for ${fullPath}` // Hiển thị đường dẫn đầy đủ khi lỗi
                 );
             }
             return response.text();
@@ -139,42 +116,31 @@ function includeHTML(filePath, targetElementId, callback) {
             const target = document.getElementById(targetElementId);
             if (target) {
                 target.innerHTML = data;
-                console.log(
-                    `Successfully loaded ${filePath} into #${targetElementId}`
-                );
-                // Gọi callback SAU KHI chèn HTML thành công
+                console.log(`Successfully loaded ${fullPath} into #${targetElementId}`);
                 if (typeof callback === "function") {
-                    console.log(`Executing callback for ${filePath}`);
-                    try {
-                        callback(); // Gọi hàm callback (ví dụ: initializeBlogSlider)
-                    } catch (e) {
-                        console.error(
-                            `Error executing callback for ${filePath}:`,
-                            e
-                        );
-                    }
+                    console.log(`Executing callback for ${fileName}`);
+                    try { callback(); } catch (e) { console.error(`Error executing callback for ${fileName}:`, e); }
                 }
             } else {
-                console.error(
-                    `Target element with ID "${targetElementId}" not found.`
-                );
+                console.error(`Target element with ID "${targetElementId}" not found.`);
             }
         })
         .catch((error) => {
-            console.error(`Error fetching or processing ${filePath}:`, error);
+            console.error(`Error fetching or processing ${fullPath}:`, error); // Hiển thị đường dẫn đầy đủ khi lỗi
             const target = document.getElementById(targetElementId);
             if (target) {
-                target.innerHTML = `<p style="color: red;">Lỗi khi tải ${filePath}. Chi tiết lỗi xem ở Console (F12).</p>`;
+                target.innerHTML = `<p style="color: red;">Lỗi khi tải ${fileName}. Chi tiết lỗi xem ở Console (F12).</p>`;
             }
         });
 }
 
+
 // ============================================
-// GỌI HÀM ĐỂ CHÈN HTML (Đặt phần này CUỐI CÙNG)
+// GỌI HÀM ĐỂ CHÈN HTML (GIỮ NGUYÊN NHƯ CŨ - Chỉ cần tên file)
 // ============================================
 
-// Chèn header (không cần callback phức tạp nếu header không có slider)
-includeHTML("../header.html", "header-placeholder");
+// Chèn header (hàm includeHTML sẽ tự động thêm './' hoặc '../' vào trước 'header.html')
+includeHTML("header.html", "header-placeholder");
 
-// Chèn footer VÀ chỉ định hàm initializeBlogSlider làm callback
-includeHTML("../footer.html", "footer-placeholder", initializeBlogSlider);
+// Chèn footer (hàm includeHTML sẽ tự động thêm './' hoặc '../' vào trước 'footer.html')
+includeHTML("footer.html", "footer-placeholder", initializeBlogSlider);
