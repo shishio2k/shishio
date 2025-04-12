@@ -146,5 +146,5 @@ function includeHTML(fileName, targetElementId, callback) {
 // ============================================
 // GỌI HÀM ĐỂ CHÈN HTML (Giữ nguyên)
 // ============================================
-includeHTML("../header.html", "header-placeholder");
-includeHTML("../footer.html", "footer-placeholder", initializeBlogSlider);
+includeHTML("header.html", "header-placeholder");
+includeHTML("footer.html", "footer-placeholder", initializeBlogSlider);
