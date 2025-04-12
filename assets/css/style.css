@@ -398,6 +398,11 @@ pre::-webkit-scrollbar-thumb {
     line-height: 1.6;
 }
 
+/* Hide Menu Toggle on Desktop */
+.menu-toggle {
+    display: none; /* Hide hamburger on desktop */
+}
+
 .header .drop-menu {
     position: absolute;
     top: 100%;
@@ -430,6 +435,118 @@ pre::-webkit-scrollbar-thumb {
     border-radius: 0;
 }
 
+/* --- Tablet & Mobile Styles --- */
+
+/* Adjust breakpoint as needed (e.g., 992px for larger tablets, 768px common) */
+@media (max-width: 992px) {
+    .header .content {
+        /* Keep space-between for logo and hamburger */
+        padding: 0 15px; /* Adjust mobile padding */
+    }
+
+    /* --- Hamburger Icon --- */
+    .menu-toggle {
+        display: block; /* Show hamburger */
+        background: none;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        padding: 10px;
+        /* Simple hamburger lines */
+        width: 40px;
+        height: 35px;
+        position: relative;
+        z-index: 1001; /* Ensure it's above the menu */
+    }
+
+    .menu-toggle span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: #fff;
+        margin: 5px auto;
+        transition: all 0.3s ease-in-out;
+        position: relative;
+        transform-origin: center center;
+    }
+
+    /* --- Hide Desktop Menu --- */
+    .header .menu {
+        display: none; /* Hide horizontal menu */
+        /* Style for when it's shown */
+        position: absolute;
+        top: 100%; /* Position below header */
+        left: 0;
+        width: 100%;
+        background-color: #333; /* Mobile menu background */
+        flex-direction: column; /* Stack items vertically */
+        padding: 10px 0;
+        z-index: 1000;
+        border-top: 1px solid #444; /* Separator */
+    }
+
+    /* --- Show menu when active (JS will add .menu-open class) --- */
+    .header.menu-open .menu {
+        display: flex; /* Show the menu */
+    }
+
+    /* --- Style Mobile Menu Items --- */
+    .header .menu li {
+        margin-left: 0; /* Remove horizontal margin */
+        width: 100%;
+    }
+
+    .header .menu li a {
+        padding: 12px 20px; /* More touch-friendly padding */
+        width: 100%;
+        border-bottom: 1px solid #444; /* Separator lines */
+        font-size: 1.1em; /* Adjust mobile font size */
+        white-space: normal; /* Allow wrapping */
+    }
+
+    .header .menu li:last-child a {
+        border-bottom: none; /* No border on last item */
+    }
+
+    /* --- Handle Dropdown on Mobile --- */
+    .header .menu li:hover .drop-menu {
+        display: none; /* Disable hover effect on mobile/tablet */
+    }
+
+    .header .menu .drop-menu {
+        position: static; /* Unset absolute positioning */
+        display: block; /* Always show submenu items (or toggle with JS) */
+        background-color: transparent; /* Inherit background */
+        border: none;
+        border-radius: 0;
+        min-width: unset;
+        padding: 0;
+        margin-top: -5px; /* Adjust spacing */
+    }
+
+    .header .menu .drop-menu li a {
+        padding-left: 40px; /* Indent submenu items */
+        font-size: 0.95em; /* Slightly smaller */
+        color: #ccc; /* Different color for sub-items */
+        border-color: #555; /* Lighter border for sub-items */
+    }
+
+    .header .menu .drop-menu li:last-child a {
+        border-bottom: 1px solid #444; /* Ensure last sub-item has border if parent does */
+    }
+
+    /* Optional: Animate Hamburger to 'X' when open */
+    .header.menu-open .menu-toggle span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .header.menu-open .menu-toggle span:nth-child(2) {
+        opacity: 0;
+    }
+    .header.menu-open .menu-toggle span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
 /*  footer */
 .footer {
     padding: 60px 0 30px 0;
@@ -447,7 +564,11 @@ pre::-webkit-scrollbar-thumb {
 
 .footer .item {
     display: inline-block;
-    width: 32%;
+    width: 34%;
+}
+
+.footer .item:first-child {
+    width: 29%; /* Chiều rộng cột đầu tiên có thể lớn hơn */
 }
 
 .footer .title {
@@ -721,4 +842,96 @@ pre::-webkit-scrollbar-thumb {
     #nextBtn {
         right: 10px;
     }
+}
+/* ==================== RESPONSIVE ==================== */
+
+/* Tablet (Ví dụ: dưới 992px) */
+@media (max-width: 991.98px) {
+    .footer .content {
+        width: auto; /* Cho phép co giãn */
+        max-width: calc(100% - 40px); /* Giảm padding 2 bên */
+    }
+
+    .footer .list {
+        flex-direction: column; /* Xếp các item theo chiều dọc */
+        gap: 40px; /* Giảm khoảng cách dọc giữa các item */
+    }
+
+    .footer .item,
+    .footer .item:first-child,
+    .footer .item:nth-child(2),
+    .footer .item:nth-child(3) {
+        width: 100%; /* Mỗi item chiếm toàn bộ chiều rộng */
+    }
+
+    .footer .copyright {
+        margin-top: 40px;
+    }
+}
+
+/* Mobile (Ví dụ: dưới 768px) */
+@media (max-width: 767.98px) {
+    .footer {
+        padding-top: 50px; /* Giảm padding trên */
+    }
+
+    .footer .content {
+        max-width: calc(100% - 30px); /* Giảm padding 2 bên nữa */
+    }
+
+    .footer .list {
+        gap: 30px; /* Giảm khoảng cách dọc thêm */
+    }
+
+    .footer .item .title {
+        font-size: 2rem; /* Giảm cỡ chữ tiêu đề chính */
+    }
+
+    .footer .item .desc,
+    .footer .social p,
+    .footer .item .title-blog,
+    .footer .slide-text .title {
+        font-size: 1.3rem; /* Giảm cỡ chữ phụ */
+    }
+
+    .footer .item .readmore,
+    .footer .slide-text .read-more {
+        font-size: 1.1rem;
+    }
+
+    .footer .item .content-blog img {
+        width: 50px; /* Giảm kích thước ảnh thumbnail */
+        height: 50px;
+    }
+
+    .footer .slider-btn {
+        padding: 6px 10px;
+        font-size: 1.4rem;
+    }
+
+    .footer #prevBtn {
+        left: 5px;
+    }
+
+    .footer #nextBtn {
+        right: 5px;
+    }
+
+    .footer .copyright {
+        margin-top: 30px;
+        padding-top: 20px;
+    }
+    .footer .copyright p {
+        font-size: 1.2rem;
+    }
+}
+
+/* Mobile nhỏ hơn (Ví dụ: dưới 576px) */
+@media (max-width: 575.98px) {
+    /* Có thể thêm các điều chỉnh nhỏ hơn nữa nếu cần */
+    /* Ví dụ: Giảm padding của footer content */
+    .footer .content {
+        max-width: calc(100% - 20px);
+    }
+    /* Có thể ẩn bớt một số chi tiết hoặc giảm font size thêm */
 }

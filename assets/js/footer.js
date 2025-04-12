@@ -266,3 +266,5 @@ function includeHTML(fileName, targetElementId, callback) {
 // ============================================
 includeHTML("header.html", "header-placeholder");
 includeHTML("footer.html", "footer-placeholder", initializeBlogSlider);
+
+
