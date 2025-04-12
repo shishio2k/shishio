@@ -985,7 +985,7 @@ pre::-webkit-scrollbar-thumb {
     }
 
     .footer .slider-btn {
-        padding: 6px 10px;
+        /* padding: 6px 10px; */
         font-size: 1.4rem;
     }
 
