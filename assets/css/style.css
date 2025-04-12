@@ -446,6 +446,22 @@ pre::-webkit-scrollbar-thumb {
         padding: 0 20px;
     }
 
+    .header.menu-open .menu li {
+        margin-left: 0;
+        width: 100%;
+        position: relative;
+    }
+
+    .header.menu-open .menu li a {
+        /* Giữ nguyên các style cũ */
+        padding: 12px 20px;
+        width: 100%;
+        border-bottom: 1px solid #444;
+        font-size: 1.1em;
+        white-space: normal;
+        display: block; /* Đảm bảo là block để chiếm toàn bộ chiều rộng */
+        position: relative; /* Cần cho icon nếu có */
+    }
     /* --- Hamburger Icon --- */
     .menu-toggle {
         display: block; /* Show hamburger */
@@ -495,6 +511,10 @@ pre::-webkit-scrollbar-thumb {
     /* --- Show menu when active (JS will add .menu-open class) --- */
     .header.menu-open .menu {
         display: flex; /* Show the menu */
+    }
+
+    .header.menu-open .menu li:last-child a {
+        border-bottom: none;
     }
 
     /* --- Style Mobile Menu Items --- */
@@ -552,6 +572,55 @@ pre::-webkit-scrollbar-thumb {
     .header.menu-open .menu-toggle span:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
     }
+}
+/* --- XỬ LÝ SUBMENU (drop-menu) --- */
+
+/* A. Ẩn submenu theo mặc định TRÊN MOBILE */
+.header.menu-open .menu .drop-menu {
+    display: none; /* !! QUAN TRỌNG: Ẩn đi ban đầu */
+    position: static; /* Ghi đè position: absolute từ desktop */
+    background-color: #484848; /* Màu nền hơi khác cho dễ phân biệt */
+    list-style: none;
+    width: 100%; /* Chiếm toàn bộ chiều rộng của cha */
+    padding: 0; /* Reset padding của ul */
+    margin-top: 0; /* Reset margin top */
+    border-radius: 0; /* Reset border-radius */
+    border-top: 1px dashed #666; /* Đường phân cách phía trên submenu */
+}
+
+/* B. Hiển thị submenu khi LI cha có class 'submenu-open' (JS sẽ thêm class này) */
+.header.menu-open .menu li.submenu-open > .drop-menu {
+    display: block;
+}
+
+/* C. Tạo kiểu cho các mục con trong submenu */
+.header.menu-open .menu .drop-menu li a {
+    padding-left: 35px; /* !! QUAN TRỌNG: Thụt vào 15px so với padding 20px của cha */
+    font-size: 0.95em; /* Font nhỏ hơn một chút */
+    color: #ccc;
+    border-color: #555; /* Border nhạt hơn */
+    border-bottom-style: dashed; /* Kiểu đường kẻ khác biệt */
+}
+.header.menu-open .menu .drop-menu li:last-child a {
+    /* Giữ lại border dưới cho mục cuối cùng trong submenu để phân cách với mục tiếp theo */
+    border-bottom: 1px dashed #555;
+}
+
+/* D. (Tùy chọn) Thêm icon chỉ báo cho mục có submenu */
+.header.menu-open .menu li:has(.drop-menu) > a::after {
+    content: "+"; /* Icon '+' khi đóng */
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: transform 0.2s ease-in-out;
+}
+
+.header.menu-open .menu li.submenu-open > a::after {
+    content: "−"; /* Icon '-' khi mở (ký tự trừ) */
+    /* Hoặc bạn có thể xoay dấu cộng: transform: translateY(-50%) rotate(45deg); */
 }
 
 /*  footer */
