@@ -457,7 +457,7 @@ pre::-webkit-scrollbar-thumb {
         padding: 12px 20px;
         width: 100%;
         border-bottom: 1px solid #444;
-        font-size: 1.6rem;
+        font-size: 1.8rem;
         white-space: normal;
         display: block; /* Đảm bảo là block để chiếm toàn bộ chiều rộng */
         position: relative; /* Cần cho icon nếu có */
@@ -600,7 +600,7 @@ pre::-webkit-scrollbar-thumb {
 /* C. Tạo kiểu cho các mục con trong submenu */
 .header.menu-open .menu .drop-menu li a {
     padding-left: 35px; /* !! QUAN TRỌNG: Thụt vào 15px so với padding 20px của cha */
-    font-size: 1.4rem; /* Font nhỏ hơn một chút */
+    font-size: 1.6rem; /* Font nhỏ hơn một chút */
     color: #212121;
     border-color: #d3d3d3; /* Border nhạt hơn */
     border-bottom-style: dashed; /* Kiểu đường kẻ khác biệt */
