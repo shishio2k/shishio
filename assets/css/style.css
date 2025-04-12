@@ -593,7 +593,7 @@ pre::-webkit-scrollbar-thumb {
     display: block;
     background-color: #ebebeb;
 }
-.header.menu-open .menu li.submenu-open > .drop-menu a{
+.header.menu-open .menu li.submenu-open > .drop-menu a {
     color: #242424;
 }
 
@@ -797,25 +797,21 @@ pre::-webkit-scrollbar-thumb {
     max-width: calc(50% - 5px); /* Đồng bộ với flex-basis */
     box-sizing: border-box;
 
-    /* === BỎ HOẶC SỬA DÒNG NÀY === */
-    /* padding: 0 15px; */ /* Bỏ hoàn toàn dòng này */
-    /* HOẶC đặt thành 0 nếu bạn có padding top/bottom cần giữ: */
-    /* padding: 0; */
-
-    /* Các thuộc tính khác giữ nguyên */
     font-size: 1rem;
-    /* display: inline-block; */ /* Không cần thiết khi dùng flex và gap */
-    vertical-align: top; /* Vẫn có thể hữu ích nếu item có chiều cao khác nhau */
+
+    vertical-align: top;
     position: relative;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 .slide-item-content {
     /* Bọc nội dung để dễ quản lý */
     background-color: #111; /* Nền tối nhẹ cho phần text nếu cần */
-    border-radius: 8px; /* Bo góc cho cả khối */
-    overflow: hidden; /* Đảm bảo ảnh không tràn ra ngoài */
+
     display: flex; /* Sắp xếp ảnh và text */
     flex-direction: column;
+    height: 100%;
 }
 
 .slide-item img {
