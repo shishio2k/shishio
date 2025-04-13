@@ -1025,7 +1025,7 @@ pre::-webkit-scrollbar-thumb {
        Nhắm mục tiêu thẻ div cha chứa content-body và sidebar-placeholder.
        Sử dụng class thực tế bạn đang dùng (ví dụ: .body-opfp, .body-shishio).
        Bạn có thể liệt kê nhiều class nếu cần. */
-    .body-opfp,
+   
     .body-shishio {
         flex-direction: column; /* Chuyển hướng flex thành cột (xếp chồng lên nhau) */
         /* Nếu bạn dùng 'gap' cho khoảng cách ngang, bạn có thể reset nó ở đây
@@ -1039,7 +1039,7 @@ pre::-webkit-scrollbar-thumb {
         width: 100%;
     }
 
-    .content-opfp,
+  
     .shishio {
         width: 100%;
         max-width: calc(100% - 20px);
