@@ -192,3 +192,123 @@
 }
 
 /* video */
+/* =========================================== */
+/* CSS for Video Slider Section inside Sidebar */
+/* =========================================== */
+
+/* --- Container chính cho cả khu vực video bên trong sidebar --- */
+.sidebar .video {
+    margin-bottom: 30px; /* Khoảng cách với các phần tử bên dưới */
+    /* Thêm các style khác nếu cần */
+}
+
+/* --- Tiêu đề của khu vực video ("Video") bên trong sidebar --- */
+.sidebar .video .title {
+    background-color: #8a7ff7; /* Màu nền tím */
+    color: white; /* Màu chữ trắng */
+    padding: 12px 20px; /* Khoảng đệm bên trong */
+    font-size: 1.2em; /* Cỡ chữ tiêu đề */
+    font-weight: bold; /* Chữ đậm */
+    border-radius: 6px 6px 0 0; /* Bo góc trên */
+    text-transform: uppercase; /* Viết hoa chữ */
+    margin: 0; /* Bỏ margin mặc định */
+    box-sizing: border-box;
+}
+
+/* --- Container cho slider (wrapper + nút) bên trong sidebar --- */
+.sidebar .slide-video {
+    position: relative; /* Cần thiết để định vị nút prev/next */
+    overflow: hidden; /* !! Quan trọng: Ẩn các slide ngoài vùng hiển thị */
+    background-color: #f8f9fa; /* Màu nền nhạt */
+    border: 1px solid #e9ecef; /* Viền nhẹ */
+    border-top: none; /* Bỏ viền trên */
+    border-radius: 0 0 6px 6px; /* Bo góc dưới */
+    padding-top: 10px; /* Khoảng đệm trên */
+    padding-bottom: 10px; /* Khoảng đệm dưới */
+    box-sizing: border-box;
+}
+
+/* --- Wrapper chứa tất cả các slide item video bên trong sidebar --- */
+.sidebar .slides-wrapper-video {
+    display: flex;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* --- Từng slide item chứa iframe bên trong sidebar --- */
+.sidebar .slide-item-video {
+    flex: 0 0 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 0 15px; /* Khoảng đệm ngang */
+}
+
+/* --- Style cho iframe video bên trong sidebar --- */
+.sidebar .slide-item-video iframe {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    border: none;
+    aspect-ratio: 16 / 9; /* Giữ tỷ lệ khung hình */
+    background-color: #000; /* Nền đen khi tải */
+}
+
+/* --- Style chung cho nút Previous/Next bên trong sidebar --- */
+.sidebar .slider-btn-video {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(33, 37, 41, 0.6);
+    color: white;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    font-size: 24px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Hiệu ứng khi hover vào nút (và không bị disabled) bên trong sidebar --- */
+.sidebar .slider-btn-video:hover:not(:disabled) {
+    background-color: rgba(33, 37, 41, 0.85);
+}
+
+/* --- Style cho nút khi bị disabled bên trong sidebar --- */
+.sidebar .slider-btn-video:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* --- Định vị cụ thể cho nút Previous bên trong sidebar --- */
+/* Sử dụng ID vẫn được, nhưng thêm .sidebar để tăng độ đặc hiệu nếu cần */
+.sidebar #prevBtnVideo {
+    left: 15px;
+}
+
+/* --- Định vị cụ thể cho nút Next bên trong sidebar --- */
+.sidebar #nextBtnVideo {
+    right: 15px;
+}
+
+/* --- Nội dung cho nút bên trong sidebar --- */
+.sidebar #prevBtnVideo::before {
+    content: "‹";
+    font-weight: bold;
+}
+
+.sidebar #nextBtnVideo::before {
+    content: "›";
+    font-weight: bold;
+}
+
+/* =========================================== */
+/* Kết thúc CSS cho Video Slider Section       */
+/* =========================================== */
