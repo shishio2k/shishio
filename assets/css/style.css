@@ -424,6 +424,11 @@ pre::-webkit-scrollbar-thumb {
     color: white;
 }
 
+.header .menu > li {
+    position: relative; /* Quan trọng để định vị menu con */
+    margin: 0 5px; /* Khoảng cách giữa các mục menu */
+}
+
 .header .menu > li:hover {
     background: var(--color-1);
     border-radius: 4px;
@@ -431,7 +436,7 @@ pre::-webkit-scrollbar-thumb {
 .header .menu li:hover .drop-menu {
     display: block;
     top: 100%; /* Xuất hiện ngay dưới mục cha */
-    left: 0;   /* Căn lề trái với mục cha */
+    left: 0; /* Căn lề trái với mục cha */
 }
 .header .drop-menu li {
     border-bottom: 1px dashed #ccc;
@@ -442,7 +447,22 @@ pre::-webkit-scrollbar-thumb {
 }
 .header .drop-menu li:hover {
     background: var(--color-4);
-    border-radius: 0;
+    border-radius: 4px;
+}
+
+.header .menu .drop-menu > li:hover > .sub-drop-menu {
+    display: block;
+    top: 0; /* Căn lề trên với mục li cha ("Bản đồ kho báu") */
+    left: 100%; /* Xuất hiện ngay bên phải mục li cha */
+}
+
+.header .menu .sub-drop-menu {
+    background-color: #000000d2; /* Màu đen/xám đậm */
+   
+}
+
+.header .sub-drop-menu li:hover {
+    background-color: #f555558b; /* Màu nền hover tối hơn */
 }
 
 /* --- Tablet & Mobile Styles --- */
