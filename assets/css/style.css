@@ -396,6 +396,7 @@ pre::-webkit-scrollbar-thumb {
     font-size: 2.2rem;
     padding: 0 20px;
     line-height: 1.6;
+    white-space: nowrap;
 }
 
 /* Hide Menu Toggle on Desktop */
@@ -403,7 +404,8 @@ pre::-webkit-scrollbar-thumb {
     display: none; /* Hide hamburger on desktop */
 }
 
-.header .drop-menu {
+.header .drop-menu,
+.header .sub-drop-menu {
     position: absolute;
     top: 100%;
     display: none;
@@ -411,26 +413,34 @@ pre::-webkit-scrollbar-thumb {
     background: #000000f3;
     z-index: 60;
 }
-.drop-menu li a {
+
+.header .menu .drop-menu li,
+.header .menu .sub-drop-menu li {
+    position: relative; /* Cần thiết nếu có menu con cấp 3 trở đi */
+}
+
+.header .drop-menu li a {
     padding: 10px 15px;
     color: white;
 }
 
-.menu > li:hover {
+.header .menu > li:hover {
     background: var(--color-1);
     border-radius: 4px;
 }
-.menu li:hover .drop-menu {
+.header .menu li:hover .drop-menu {
     display: block;
+    top: 100%; /* Xuất hiện ngay dưới mục cha */
+    left: 0;   /* Căn lề trái với mục cha */
 }
-.drop-menu li {
+.header .drop-menu li {
     border-bottom: 1px dashed #ccc;
     padding: 4px 0;
 }
-.drop-menu a {
+.header .drop-menu a {
     padding: 4px 20px;
 }
-.drop-menu li:hover {
+.header .drop-menu li:hover {
     background: var(--color-4);
     border-radius: 0;
 }
@@ -1025,7 +1035,7 @@ pre::-webkit-scrollbar-thumb {
        Nhắm mục tiêu thẻ div cha chứa content-body và sidebar-placeholder.
        Sử dụng class thực tế bạn đang dùng (ví dụ: .body-opfp, .body-shishio).
        Bạn có thể liệt kê nhiều class nếu cần. */
-   
+
     .body-shishio {
         flex-direction: column; /* Chuyển hướng flex thành cột (xếp chồng lên nhau) */
         /* Nếu bạn dùng 'gap' cho khoảng cách ngang, bạn có thể reset nó ở đây
@@ -1039,7 +1049,6 @@ pre::-webkit-scrollbar-thumb {
         width: 100%;
     }
 
-  
     .shishio {
         width: 100%;
         max-width: calc(100% - 20px);
