@@ -4,3 +4,10 @@
     grid-template-rows: repeat(1, 1fr);
     gap: 30px;
 }
+.body-opfp .content-body{
+    width: 70%;
+}
+
+.body-opfp .sidebar{
+    width: 29%;
+}
