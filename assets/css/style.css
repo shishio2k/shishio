@@ -32,14 +32,7 @@ note-1 {
     color: var(--color-2);
 }
 
-note-2 {
-    margin: 10px 0;
-    display: block;
-    color: var(--color-6);
-    font-family: var(--font-1);
-    font-size: 2.2rem;
-    font-weight: 500;
-}
+
 
 example {
     margin: 24px 0 12px;
@@ -175,23 +168,27 @@ strong {
 note,
 note-1,
 span,
-example {
+ext {
     color: var(--color-4);
     font-size: 1.8rem;
     font-family: var(--font-3);
     font-weight: 500;
 }
 
-note-2 {
+note-2, note-3 {
     margin: 10px 0;
     display: block;
     color: var(--color-6);
-    font-family: var(--font-1);
+    font-family: var(--font-6);
     font-size: 2.2rem;
     font-weight: 500;
 }
 
-example {
+note-3{
+    display: inline-block;
+}
+
+ext {
     margin: 24px 0 12px;
     display: block;
     color: #000;

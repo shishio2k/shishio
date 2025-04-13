@@ -26,7 +26,7 @@
     display: block;
     width: 100%;
     height: 500px;
-    margin-bottom: 15px;
+    margin: 15px 0;
 }
 
 .content-bdkb .content-body .img1 {
@@ -34,17 +34,43 @@
 }
 
 .content-bdkb .content-body .img2 {
-    background-image: url("../img/map-1/nv1-character.png");
+    background-image: url("../img/map-1/nv2-character.png");
 }
 
-.content-body h3 {
-    margin: 0 0 15px 0;
+.content-bdkb .content-body .img2-1 {
+    background-image: url("../img/map-1/nv2-danhnpc.png");
+}
+
+.content-bdkb .content-body .img2-2 {
+    background-image: url("../img/map-1/nv2-nhakho.png");
+}
+.content-bdkb .content-body .img2-3 {
+    background-image: url("../img/map-1/nv2-thungbia.png");
+}
+.content-bdkb .content-body .img3 {
+    background-image: url("../img/map-1/nv3-character.png");
+}
+
+.content-bdkb .content-body .img3-1 {
+    background-image: url("../img/map-1/nv3-chatcaygo.png");
+}
+
+.content-bdkb .content-body .img3-2 {
+    background-image: url("../img/map-1/nv3-giaogo.png");
+}
+
+
+
+.content-body h3,
+.content-body h2,
+.content-body h4 {
+    margin: 15px 0;
 }
 
 .content-bdkb p {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     font-family: var(--font-3);
-    font-weight: 400;
+    font-weight: 500;
     line-height: 1.6;
 }
 /* ============================================================================= */
