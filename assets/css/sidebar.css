@@ -21,19 +21,22 @@
 /* =========================================================== */
 /*                           Social                            */
 /* =========================================================== */
-.sidebar .social {
+.sidebar .social,
+.sidebar .popular-post,
+.sidebar .video {
     width: 100%;
-    background-color: #ff0000;
 }
 
-.sidebar .social .title {
+.sidebar .social .title,
+.sidebar .popular-post .title,
+.sidebar .video .title {
     padding: 10px 15px; /* Khoảng đệm bên trong */
 
     text-transform: uppercase; /* Viết hoa chữ */
     margin-bottom: 15px; /* Khoảng cách với danh sách nút bên dưới */
     border-radius: 3px;
 
-    font-family: var(--font-4);
+    font-family: var(--font-2);
     font-weight: 500;
     font-size: 2.2rem;
     color: #fff; /* Màu chữ trắng */
@@ -46,7 +49,6 @@
     padding: 0; /* Bỏ khoảng đệm mặc định của ul */
     margin: 0; /* Bỏ khoảng cách mặc định của ul */
     display: flex; /* Sắp xếp các thẻ li (nút) theo hàng ngang */
-    gap: 10px; /* Khoảng cách giữa các nút */
 }
 
 .sidebar .social .list a {
@@ -69,7 +71,11 @@
     box-sizing: border-box; /* Đảm bảo padding không làm tăng kích thước */
 }
 
-.social .list li a.social-link {
+.sidebar .social .list li:last-child {
+    margin-right: 0px;
+}
+
+.sidebar .social .list li a.social-link {
     display: inline-flex;
     align-items: center;
     padding: 8px 15px;
@@ -78,26 +84,111 @@
     border-radius: 5px;
     font-size: 0.9em;
     font-weight: 500;
-    transition: opacity 0.2s ease;
+    transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease,
+        border-color 0.2s ease; /* Thêm transition cho border-color */
+    box-sizing: border-box;
+    border: 1px solid transparent;
 }
 
-.social .list li a.social-link i {
+.sidebar .social li a.social-link i {
     margin-right: 8px;
     font-size: 1.4rem;
 }
 
 /* Màu nền cho từng link */
-.social .list li a.youtube {
+.sidebar .social li a.youtube {
     background-color: #ff0000;
 }
-.social .list li a.tiktok {
+.sidebar .social li a.tiktok {
     background-color: #000000;
 }
-.social .list li a.facebook {
+.sidebar .social li a.facebook {
     background-color: #1877f2;
 }
 
 /* Hover effect */
-.social .list li a.social-link:hover {
-    opacity: 0.9;
+.sidebar .social li a.social-link:hover {
+    opacity: 0.8;
+    background-color: transparent;
+    border: 1px solid;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #000000;
 }
+
+.sidebar .social li a.youtube:hover {
+    border-color: #ff0000;
+    color: #ff0000;
+    box-shadow: inset 0 0 0 1px #ff0000;
+}
+
+.sidebar .social li a.facebook:hover {
+    border-color: #1877f2;
+    color: #1877f2;
+    box-shadow: inset 0 0 0 1px #1877f2;
+}
+
+.sidebar .social li a.tiktok:hover {
+    border-color: #000000;
+    color: #000000;
+    box-shadow: inset 0 0 0 1px #000000;
+}
+
+.sidebar .social li a.youtube:hover i {
+    color: #ff0000;
+}
+
+.sidebar .social li a.facebook:hover i {
+    color: #1877f2;
+}
+
+/* Popular Post */
+.sidebar .popular-post .blog-content {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.sidebar .popular-post .item-blog {
+    padding-bottom: 10px;
+    border-bottom: 1px dotted #ccc;
+}
+
+.sidebar .popular-post .content-blog {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar .popular-post img {
+    width: 100%;
+    height: 78px;
+    border-radius: 4px;
+    object-fit: cover;
+    object-position: top center;
+}
+
+.sidebar .popular-post .blog-detail {
+    color: #181818;
+    font-family: var(--font-3);
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.sidebar .popular-post .readmore {
+    color: var(--color-5);
+    font-size: 1.4rem;
+    display: inline-block;
+}
+
+.sidebar .popular-post .title-blog:hover {
+    color: var(--color-4);
+}
+
+.sidebar .popular-post .readmore:hover {
+    color: var(--color-6);
+}
+
+/* video */
