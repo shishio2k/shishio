@@ -1,0 +1,22 @@
+.shishio {
+    width: 100%;
+    max-width: calc(100% - 64px);
+    line-height: 1.6;
+    font-family: var(--font-3);
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.shishio .body-shishio {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.shishio .content-body {
+    width: 70%;
+    background-color: lightblue;
+}
+
