@@ -1011,3 +1011,69 @@ pre::-webkit-scrollbar-thumb {
     }
     /* Có thể ẩn bớt một số chi tiết hoặc giảm font size thêm */
 }
+
+
+/* ========================================================= */
+/* ========================================================= */
+/* 999999999999999999999999999999999999999999999999999999999 */
+/* =========================================== */
+/* Responsive Layout for Mobile & Tablet     */
+/* =========================================== */
+
+/* Áp dụng các style này khi chiều rộng màn hình là 768px hoặc nhỏ hơn */
+@media (max-width: 768px) {
+
+    /* 1. Thay đổi Flex Container:
+       Nhắm mục tiêu thẻ div cha chứa content-body và sidebar-placeholder.
+       Sử dụng class thực tế bạn đang dùng (ví dụ: .body-opfp, .body-shishio).
+       Bạn có thể liệt kê nhiều class nếu cần. */
+    .body-opfp,
+    .body-shishio {
+        flex-direction: column; /* Chuyển hướng flex thành cột (xếp chồng lên nhau) */
+        /* Nếu bạn dùng 'gap' cho khoảng cách ngang, bạn có thể reset nó ở đây
+           hoặc set gap dọc nếu muốn khoảng cách tự động giữa content và sidebar */
+        /* gap: 25px 0; */ /* Ví dụ: chỉ giữ khoảng cách dọc */
+    }
+
+    /* 2. Đặt lại chiều rộng cho Content Body */
+    .body-opfp .content-body,
+    .body-shishio .content-body {
+        width: 100%;      /* Cho phép content body chiếm toàn bộ chiều rộng */
+        /* Reset các margin/padding có thể đã dùng để tạo khoảng cách ngang */
+        margin-right: 0;
+        padding-right: 0; /* Hoặc bất kỳ thuộc tính nào khác gây ra khoảng cách */
+    }
+
+    /* 3. Đặt lại chiều rộng và thêm khoảng cách cho Sidebar Placeholder */
+    /* Nhắm mục tiêu ID của placeholder */
+    #sidebar-placeholder {
+        width: 100% !important; /* !! Buộc chiều rộng là 100%, ghi đè inline style */
+        margin-top: 25px;   /* Tạo khoảng cách phía trên sidebar */
+        /* Reset các margin/padding có thể đã dùng để tạo khoảng cách ngang */
+        margin-left: 0;
+        padding-left: 0;   /* Hoặc bất kỳ thuộc tính nào khác gây ra khoảng cách */
+    }
+
+    /* 4. (Tùy chọn nhưng nên có) Đảm bảo nội dung bên trong sidebar cũng full width */
+    /* Nhắm mục tiêu class .sidebar được load vào placeholder */
+     #sidebar-placeholder .sidebar {
+          width: 100%; /* Đảm bảo div .sidebar bên trong cũng full width */
+          box-sizing: border-box; /* Nên có để padding không ảnh hưởng width */
+     }
+     /* Hoặc một quy tắc chung hơn nếu cần */
+     /*
+     .sidebar {
+          width: 100%;
+          box-sizing: border-box;
+     }
+     */
+
+}
+
+/* Bạn có thể thêm một breakpoint khác cho màn hình nhỏ hơn nữa nếu cần */
+/* Ví dụ: cho điện thoại rất nhỏ */
+/*
+@media (max-width: 480px) {
+    // Thêm các điều chỉnh nhỏ hơn nếu cần
+}
+*/
