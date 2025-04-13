@@ -7,15 +7,18 @@
 }
 
 .body-opfp {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(1, 1fr);
-    gap: 30px;
+    display: flex; /* Kích hoạt Flexbox */
+    width: 100%; /* Chiếm toàn bộ chiều rộng container cha */
+    justify-content: space-between; /* Đẩy 2 item con ra 2 phía, tạo khoảng trống ở giữa (nếu tổng width < 100%) */
+
+    /* gap: 1%; */ /* Tạo khoảng cách 1% giữa các item con */
 }
 .body-opfp .content-body {
     width: 70%;
+    background-color: lightblue;
 }
 
 .body-opfp .sidebar {
     width: 29%;
+    background-color: lightcoral;
 }
