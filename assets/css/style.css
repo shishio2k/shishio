@@ -976,8 +976,8 @@ pre::-webkit-scrollbar-thumb {
     }
 
     .footer .item .content-blog img {
-        width: 50px; /* Giảm kích thước ảnh thumbnail */
-        height: 50px;
+        width: 100%; /* Giảm kích thước ảnh thumbnail */
+        height: 100px;
     }
 
     .footer .slider-btn {
@@ -1012,7 +1012,6 @@ pre::-webkit-scrollbar-thumb {
     /* Có thể ẩn bớt một số chi tiết hoặc giảm font size thêm */
 }
 
-
 /* ========================================================= */
 /* ========================================================= */
 /* 999999999999999999999999999999999999999999999999999999999 */
@@ -1022,7 +1021,6 @@ pre::-webkit-scrollbar-thumb {
 
 /* Áp dụng các style này khi chiều rộng màn hình là 768px hoặc nhỏ hơn */
 @media (max-width: 768px) {
-
     /* 1. Thay đổi Flex Container:
        Nhắm mục tiêu thẻ div cha chứa content-body và sidebar-placeholder.
        Sử dụng class thực tế bạn đang dùng (ví dụ: .body-opfp, .body-shishio).
@@ -1038,7 +1036,7 @@ pre::-webkit-scrollbar-thumb {
     /* 2. Đặt lại chiều rộng cho Content Body */
     .body-opfp .content-body,
     .body-shishio .content-body {
-        width: 100%;      /* Cho phép content body chiếm toàn bộ chiều rộng */
+        width: 100%; /* Cho phép content body chiếm toàn bộ chiều rộng */
         /* Reset các margin/padding có thể đã dùng để tạo khoảng cách ngang */
         margin-right: 0;
         padding-right: 0; /* Hoặc bất kỳ thuộc tính nào khác gây ra khoảng cách */
@@ -1048,26 +1046,25 @@ pre::-webkit-scrollbar-thumb {
     /* Nhắm mục tiêu ID của placeholder */
     #sidebar-placeholder {
         width: 100% !important; /* !! Buộc chiều rộng là 100%, ghi đè inline style */
-        margin-top: 25px;   /* Tạo khoảng cách phía trên sidebar */
+        margin-top: 25px; /* Tạo khoảng cách phía trên sidebar */
         /* Reset các margin/padding có thể đã dùng để tạo khoảng cách ngang */
         margin-left: 0;
-        padding-left: 0;   /* Hoặc bất kỳ thuộc tính nào khác gây ra khoảng cách */
+        padding-left: 0; /* Hoặc bất kỳ thuộc tính nào khác gây ra khoảng cách */
     }
 
     /* 4. (Tùy chọn nhưng nên có) Đảm bảo nội dung bên trong sidebar cũng full width */
     /* Nhắm mục tiêu class .sidebar được load vào placeholder */
-     #sidebar-placeholder .sidebar {
-          width: 100%; /* Đảm bảo div .sidebar bên trong cũng full width */
-          box-sizing: border-box; /* Nên có để padding không ảnh hưởng width */
-     }
-     /* Hoặc một quy tắc chung hơn nếu cần */
-     /*
+    #sidebar-placeholder .sidebar {
+        width: 100%; /* Đảm bảo div .sidebar bên trong cũng full width */
+        box-sizing: border-box; /* Nên có để padding không ảnh hưởng width */
+    }
+    /* Hoặc một quy tắc chung hơn nếu cần */
+    /*
      .sidebar {
           width: 100%;
           box-sizing: border-box;
      }
      */
-
 }
 
 /* Bạn có thể thêm một breakpoint khác cho màn hình nhỏ hơn nữa nếu cần */

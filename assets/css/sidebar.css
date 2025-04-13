@@ -314,3 +314,8 @@
 /* =========================================== */
 /* Kết thúc CSS cho Video Slider Section       */
 /* =========================================== */
+@media (max-width: 767.98px) {
+    .sidebar .popular-post img{
+        height: 100px;
+    }
+}
