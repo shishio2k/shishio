@@ -1,13 +1,21 @@
+.content-opfp {
+    width: 100%;
+    font-family: var(--font-3);
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
 .body-opfp {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(1, 1fr);
     gap: 30px;
 }
-.body-opfp .content-body{
+.body-opfp .content-body {
     width: 70%;
 }
 
-.body-opfp .sidebar{
+.body-opfp .sidebar {
     width: 29%;
 }
