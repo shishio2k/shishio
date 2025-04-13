@@ -1,0 +1,163 @@
+<!-- File: sidebar.html -->
+<!-- Nội dung dùng chung cho sidebar -->
+<div class="sidebar">
+    <!-- social -->
+    <div class="social">
+        <div class="title">Mạng Xã Hội</div>
+        <ul class="list">
+            <li>
+                <a
+                    class="social-link youtube"
+                    href="#!"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    ><i class="fab fa-youtube"></i>Youtube</a
+                >
+            </li>
+            <li>
+                <a
+                    class="social-link facebook"
+                    href="#!"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    ><i class="fab fa-facebook-f"></i>Facebook</a
+                >
+            </li>
+            <li>
+                <a
+                    class="social-link tiktok"
+                    href="#!"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    ><i class="fab fa-tiktok"></i> Tiktok</a
+                >
+            </li>
+        </ul>
+    </div>
+
+    <!-- popular post -->
+    <div class="popular-post">
+        <div class="title">Bài viết nên đọc</div>
+        <div class="blog-content">
+            <!-- Item 1 -->
+            <div class="item-blog">
+                <a class="content-blog" href="#!">
+                    <!-- QUAN TRỌNG: Sửa đường dẫn ảnh về gốc -->
+                    <img
+                        src="assets/img/blog.jpg"
+                        alt="Tiêu đề bài viết 1"
+                        loading="lazy"
+                    />
+                    <div class="blog-detail">
+                        <p class="title-blog line-2row">
+                            Đây là tiêu đề bài viết ví dụ số 1 rất dài để kiểm
+                            tra cắt dòng
+                        </p>
+                        <p class="readmore">Nhấp để đọc >></p>
+                    </div>
+                </a>
+            </div>
+            <!-- Item 2 -->
+            <div class="item-blog">
+                <a class="content-blog" href="#!">
+                    <!-- QUAN TRỌNG: Sửa đường dẫn ảnh về gốc -->
+                    <img
+                        src="assets/img/img-1 (5).jpg"
+                        alt="Tiêu đề bài viết 2"
+                        loading="lazy"
+                    />
+                    <div class="blog-detail">
+                        <p class="title-blog line-2row">
+                            Tiêu đề bài viết ví dụ số 2 cũng dài không kém để
+                            xem nó hiển thị
+                        </p>
+                        <p class="readmore">Nhấp để đọc >></p>
+                    </div>
+                </a>
+            </div>
+            <!-- Item 3 -->
+            <div class="item-blog">
+                <a class="content-blog" href="#!">
+                    <!-- QUAN TRỌNG: Sửa đường dẫn ảnh về gốc -->
+                    <img
+                        src="assets/img/img-1 (4).jpg"
+                        alt="Tiêu đề bài viết 3"
+                        loading="lazy"
+                    />
+                    <div class="blog-detail">
+                        <p class="title-blog line-2row">
+                            Bài viết ví dụ số 3 với một tiêu đề khác biệt hơn
+                            một chút
+                        </p>
+                        <p class="readmore">Nhấp để đọc >></p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide Video -->
+    <div class="video">
+        <div class="title">Video</div>
+        <!-- Container chính cho slide video -->
+        <div class="slide-video">
+            <!-- Wrapper chứa các slide -->
+            <div class="slides-wrapper-video">
+                <!-- Slide Item 1 -->
+                <div class="slide-item-video">
+                    <iframe
+                        width="100%"
+                        src="https://www.youtube.com/embed/L6sMlUPpGso?si=qW7VCqKRZPZOOTXb"
+                        title="YouTube video player 1"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                        loading="lazy"
+                    ></iframe>
+                </div>
+                <!-- Slide Item 2 -->
+                <div class="slide-item-video">
+                    <iframe
+                        width="100%"
+                        src="https://www.youtube.com/embed/sWh0OT-rnk8?si=b3nwcnrFUlP33Ckh"
+                        title="YouTube video player 2"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                        loading="lazy"
+                    ></iframe>
+                </div>
+                <!-- Slide Item 3 (Thêm video khác nếu muốn) -->
+                <div class="slide-item-video">
+                    <iframe
+                        width="100%"
+                        src="https://www.youtube.com/embed/VIDEO_ID_3"
+                        <!--
+                        Thay
+                        VIDEO_ID_3
+                        --
+                    >
+                        title="YouTube video player 3" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write;
+                        encrypted-media; gyroscope; picture-in-picture;
+                        web-share" allowfullscreen loading="lazy" ></iframe
+                    >
+                </div>
+                <!-- Thêm các .slide-item-video khác nếu cần -->
+            </div>
+            <!-- Nút điều khiển -->
+            <button
+                id="prevBtnVideo"
+                class="slider-btn-video"
+                aria-label="Previous Video"
+                disabled
+            ></button>
+            <button
+                id="nextBtnVideo"
+                class="slider-btn-video"
+                aria-label="Next Video"
+            ></button>
+        </div>
+    </div>
+    <!-- Các phần khác của sidebar nếu có -->
+</div>
