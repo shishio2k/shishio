@@ -257,7 +257,7 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(33, 37, 41, 0.6);
+    background-color: #8a7ff7c7;
     color: white;
     border: none;
     padding: 0;
@@ -271,13 +271,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, opacity 0.2s ease; 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 /* --- Hiệu ứng khi hover vào nút (và không bị disabled) bên trong sidebar --- */
 .sidebar .slider-btn-video:hover:not(:disabled) {
-    background-color: rgba(33, 37, 41, 0.85);
+    background-color: #8a7ff7f5;
 }
 
 /* --- Style cho nút khi bị disabled bên trong sidebar --- */
@@ -285,6 +285,7 @@
     opacity: 0.4;
     cursor: not-allowed;
     box-shadow: none;
+    background-color: #8a7ff794;
 }
 
 /* --- Định vị cụ thể cho nút Previous bên trong sidebar --- */
