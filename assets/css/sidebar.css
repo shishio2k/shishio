@@ -18,46 +18,86 @@
     opacity: 0.8;
 }
 
-.sidebar .social {
-    /* Phần "Mạng xã hội" */
-    background-color: #8a7ff7; /* Màu tím nhạt */
-    color: white;
-    padding: 10px 20px;
-    font-size: 1.2em; /* Cỡ chữ lớn hơn */
-    font-family: cursive; /* Font chữ giống hình */
-    margin-bottom: 15px; /* Khoảng cách với các nút bên dưới */
-    border-radius: 5px; /* Bo góc nhẹ */
-}
-
 /* =========================================================== */
 /*                           Social                            */
 /* =========================================================== */
 .sidebar .social {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 30px;
+    width: 100%;
+    background-color: #ff0000;
 }
 
 .sidebar .social .title {
+    padding: 10px 15px; /* Khoảng đệm bên trong */
+
+    text-transform: uppercase; /* Viết hoa chữ */
+    margin-bottom: 15px; /* Khoảng cách với danh sách nút bên dưới */
+    border-radius: 3px;
+
     font-family: var(--font-4);
     font-weight: 500;
     font-size: 2.2rem;
-    color: #fff;
+    color: #fff; /* Màu chữ trắng */
+
     background-color: var(--color-2);
 }
 
 .sidebar .social .list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(1, 1fr);
-    gap: 30px;
+    list-style: none; /* Bỏ dấu chấm đầu dòng của danh sách */
+    padding: 0; /* Bỏ khoảng đệm mặc định của ul */
+    margin: 0; /* Bỏ khoảng cách mặc định của ul */
+    display: flex; /* Sắp xếp các thẻ li (nút) theo hàng ngang */
+    gap: 10px; /* Khoảng cách giữa các nút */
 }
 
 .sidebar .social .list a {
     font-family: var(--font-3);
+}
+
+.sidebar .social .list li {
+    display: inline-flex; /* Hiển thị như khối inline, cho phép dùng flex bên trong nếu có icon */
+    align-items: center; /* Căn giữa nội dung theo chiều dọc (nếu có icon) */
+    justify-content: center; /* Căn giữa nội dung theo chiều ngang */
+    padding: 8px 15px; /* Khoảng đệm bên trong nút */
+
+    color: #fff; /* Màu chữ trắng */
+    border-radius: 5px; /* Bo tròn góc nút */
+    font-size: 0.9em; /* Cỡ chữ (điều chỉnh nếu cần) */
+    font-weight: 500; /* Độ đậm chữ */
+
+    cursor: pointer; /* Biến con trỏ thành hình bàn tay khi di chuột */
+    transition: opacity 0.2s ease; /* Hiệu ứng mờ dần khi hover */
+    box-sizing: border-box; /* Đảm bảo padding không làm tăng kích thước */
+}
+
+.social .list li a.social-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 15px;
     color: #fff;
-    background-color: black;
-    display: inline-block;
-    padding: 4px 10px;
+    text-decoration: none; /* Bỏ gạch chân của link */
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: opacity 0.2s ease;
+}
+
+.social .list li a.social-link i {
+    margin-right: 8px;
+    font-size: 1.4rem;
+}
+
+/* Màu nền cho từng link */
+.social .list li a.youtube {
+    background-color: #ff0000;
+}
+.social .list li a.tiktok {
+    background-color: #000000;
+}
+.social .list li a.facebook {
+    background-color: #1877f2;
+}
+
+/* Hover effect */
+.social .list li a.social-link:hover {
+    opacity: 0.9;
 }
