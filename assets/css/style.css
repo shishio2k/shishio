@@ -14,8 +14,39 @@
     --font-3: "Be Vietnam Pro", sans-serif;
     --font-4: "Carattere", cursive;
     --font-5: "Playball", cursive;
+    --font-6: "Noto Serif HK", serif;
     --font-system: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
         "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+note,
+note-1,
+example {
+    color: var(--color-4);
+    font-size: 1.8rem;
+    font-family: var(--font-3);
+    font-weight: 500;
+}
+
+note-1 {
+    color: var(--color-2);
+}
+
+note-2 {
+    margin: 10px 0;
+    display: block;
+    color: var(--color-6);
+    font-family: var(--font-1);
+    font-size: 2.2rem;
+    font-weight: 500;
+}
+
+example {
+    margin: 24px 0 12px;
+    display: block;
+    color: #000;
+    line-height: 2;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
 }
 
 html:focus-within {
@@ -458,7 +489,6 @@ pre::-webkit-scrollbar-thumb {
 
 .header .menu .sub-drop-menu {
     background-color: #000000d2; /* Màu đen/xám đậm */
-   
 }
 
 .header .sub-drop-menu li:hover {
