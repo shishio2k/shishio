@@ -1,0 +1,55 @@
+.content-bdkb {
+    width: 100%;
+    max-width: calc(100% - 64px);
+    margin-left: auto;
+    margin-right: auto;
+    font-family: var(--font-3);
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+.content-bdkb .body {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.content-bdkb .content {
+    width: 70%;
+    background-color: lightblue;
+}
+
+.content-bdkb .content .img {
+    background-image: url('../../../assets/img/map-1/nv1-character.png') ;
+}
+
+/* ============================================================================= */
+/*                                      Reponsive                                */
+/* ============================================================================= */
+@media (max-width: 768px) {
+    .content-bdkb {
+        width: 100%;
+        max-width: calc(100% - 20px);
+    }
+    .content-bdkb .body {
+        flex-direction: column;
+    }
+
+    .content-bdkb .body .content {
+        width: 100%;
+    }
+
+    #sidebar-placeholder {
+        width: 100% !important;
+        margin-top: 25px;
+
+        margin-left: 0;
+        padding-left: 0;
+    }
+
+    #sidebar-placeholder .sidebar {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
