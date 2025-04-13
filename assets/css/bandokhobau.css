@@ -20,7 +20,6 @@
 }
 
 .content-bdkb .content-body .img {
-    background-image: url("../img/map-1/nv1-character.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -28,6 +27,14 @@
     width: 100%;
     height: 500px;
     margin-bottom: 15px;
+}
+
+.content-bdkb .content-body .img1 {
+    background-image: url("../img/map-1/nv1-character.png");
+}
+
+.content-bdkb .content-body .img2 {
+    background-image: url("../img/map-1/nv1-character.png");
 }
 
 .content-body h3 {
