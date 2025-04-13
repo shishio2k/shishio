@@ -170,6 +170,7 @@
 }
 
 .sidebar .popular-post .blog-detail {
+    width: 100%;
     color: #181818;
     font-family: var(--font-3);
     font-size: 1.6rem;
