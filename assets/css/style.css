@@ -1034,12 +1034,15 @@ pre::-webkit-scrollbar-thumb {
     }
 
     /* 2. Đặt lại chiều rộng cho Content Body */
-    .body-opfp .content-body,
-    .body-shishio .content-body {
-        width: 100%; /* Cho phép content body chiếm toàn bộ chiều rộng */
-        /* Reset các margin/padding có thể đã dùng để tạo khoảng cách ngang */
-        margin-right: 0;
-        padding-right: 0; /* Hoặc bất kỳ thuộc tính nào khác gây ra khoảng cách */
+
+    .content-body {
+        width: 100%;
+    }
+
+    .content-opfp,
+    .shishio {
+        width: 100%;
+        max-width: calc(100% - 20px);
     }
 
     /* 3. Đặt lại chiều rộng và thêm khoảng cách cho Sidebar Placeholder */

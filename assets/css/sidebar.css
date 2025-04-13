@@ -318,4 +318,8 @@
     .sidebar .popular-post img{
         height: 100px;
     }
+
+    .sidebar .social .list li{
+        padding: 8px 12px;
+    }
 }
