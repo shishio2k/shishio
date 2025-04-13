@@ -257,7 +257,7 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: var(--color-4);
+    background-color: var(--color-3);
     color: white;
     border: none;
     padding: 0;
@@ -277,7 +277,7 @@
 
 /* --- Hiệu ứng khi hover vào nút (và không bị disabled) bên trong sidebar --- */
 .sidebar .slider-btn-video:hover:not(:disabled) {
-    background-color: var(--color-6);
+    background-color: var(--color-5);
 }
 
 /* --- Style cho nút khi bị disabled bên trong sidebar --- */
@@ -285,7 +285,7 @@
     opacity: 0.4;
     cursor: not-allowed;
     box-shadow: none;
-    background-color: #f5555599;
+    background-color: #32ccbc78;
 }
 
 /* --- Định vị cụ thể cho nút Previous bên trong sidebar --- */
