@@ -22,7 +22,7 @@
             "<h4>Nhiệm vụ ${1:6.2}</h4>", // Sử dụng lại $1 để đồng bộ số hiệu
             "<note-2>$2</note-2>", // $2 là vị trí con trỏ thứ hai sau khi nhấn Tab
             "<note-1>$3</note-1>", // $3 là vị trí con trỏ thứ ba
-            "<ext>$4</ext>", // $4 là vị trí con trỏ thứ tư
+            "<ext>Mẹo: $4</ext>", // $4 là vị trí con trỏ thứ tư
             "<div class=\"img $5\"></div>$0" // $5, $6 cho phép sửa class img, $0 là vị trí cuối cùng của con trỏ
         ],
         "description": "Tạo cấu trúc section Nhiệm vụ cơ bản" // Mô tả snippet (hiển thị khi gợi ý)

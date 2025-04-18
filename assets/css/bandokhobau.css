@@ -129,6 +129,50 @@
     background-image: url("../img/map-1/nv6-gapnpc.png");
 }
 
+.content-bdkb .content-body .img6-2 {
+    background-image: url("../img/map-1/map-6-2.png");
+}
+
+.content-bdkb .content-body .img7 {
+    background-image: url("../img/map-1/map-7-1.png");
+}
+
+.content-bdkb .content-body .img7-1 {
+    background-image: url("../img/map-1/nv7-npc.png");
+}
+.content-bdkb .content-body .img7-2 {
+    background-image: url("../img/map-1/map-7-2.png");
+}
+.content-bdkb .content-body .img7-2-1 {
+    background-image: url("../img/map-1/nv7-cuahangtaphoa.png");
+}
+.content-bdkb .content-body .img8 {
+    background-image: url("../img/map-1/map-8.png");
+}
+.content-bdkb .content-body .img8-1 {
+    background-image: url("../img/map-1/map-8-1.png");
+}
+.content-bdkb .content-body .img8-1-1 {
+    background-image: url("../img/map-1/nv8-khobau.png");
+}
+.content-bdkb .content-body .img9{
+    background-image: url("../img/map-1/map-9-1.png");
+}
+
+.content-bdkb .content-body .img9-1{
+    background-image: url("../img/map-1/nv9-npc.png");
+}
+
+.content-bdkb .content-body .img-clear{
+    background-image: url("../img/map-1/clear-map-1.png");
+}
+
+.content-bdkb .content-body .bonghaitac {
+    background-image: url("../img/bong-bong-den-hai-tac/bongbong.png");
+    width: 100px;
+    height: 100px;
+}
+
 .content-body h3,
 .content-body h2,
 .content-body h4 {
