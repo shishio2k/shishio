@@ -168,8 +168,8 @@
 }
 
 .content-bdkb .content-body .bonghaitac {
-    /* background-image: url("../img/bong-bong-den-hai-tac/bongbong.png"); */
-    background-image: url("https://res.cloudinary.com/dkofww1cb/image/upload/v1745174567/Screenshot_2025-04-17_214005_ywlcdh.png");
+    background-image: url("../img/bong-bong-den-hai-tac/bongbong.png");
+    /* background-image: url("https://res.cloudinary.com/dkofww1cb/image/upload/v1745174567/Screenshot_2025-04-17_214005_ywlcdh.png"); */
     width: 100px;
     height: 100px;
 }
