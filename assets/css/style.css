@@ -15,6 +15,20 @@
     --font-4: "Carattere", cursive;
     --font-5: "Playball", cursive;
     --font-6: "Noto Serif HK", serif;
+    --font-7: "Orbitron", sans-serif;
+    --font-8: "Seymour One", sans-serif;
+    --font-9: "Oxanium", sans-serif;
+    --font-10: "Alfa Slab One", serif;
+    --font-11: "Josefin Sans", sans-serif;
+    --font-12: "Genos", sans-serif;
+    --font-13: "Goldman", sans-serif;
+    --font-14: "Oswald", sans-serif;
+    --font-15: "Bangers", system-ui;
+    --font-16: "Patrick Hand", cursive;
+    --font-17: "Patrick Hand SC", cursive;
+    --font-18: "Fredericka the Great", serif;
+    --font-19: "Boogaloo", sans-serif;
+
     --font-system: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
         "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
@@ -31,8 +45,6 @@ example {
 note-1 {
     color: var(--color-2);
 }
-
-
 
 example {
     margin: 24px 0 12px;
@@ -175,7 +187,8 @@ ext {
     font-weight: 500;
 }
 
-note-2, note-3 {
+note-2,
+note-3 {
     margin: 10px 0;
     display: block;
     color: var(--color-6);
@@ -184,7 +197,7 @@ note-2, note-3 {
     font-weight: 500;
 }
 
-note-3{
+note-3 {
     display: inline-block;
 }
 
@@ -466,6 +479,11 @@ pre::-webkit-scrollbar-thumb {
     top: 100%; /* Xuất hiện ngay dưới mục cha */
     left: 0; /* Căn lề trái với mục cha */
 }
+
+.header .menu .sub-drop-menu a {
+    font-family: var(--font-11);
+}
+
 .header .drop-menu li {
     border-bottom: 1px dashed #ccc;
     padding: 4px 0;
