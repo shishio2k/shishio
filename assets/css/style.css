@@ -586,7 +586,6 @@ pre::-webkit-scrollbar-thumb {
     /* --- Show menu when active (JS will add .menu-open class) --- */
     .header.menu-open .menu {
         display: flex; /* Show the menu */
-        width: 330px;
     }
 
     .header.menu-open .menu li:last-child a {
