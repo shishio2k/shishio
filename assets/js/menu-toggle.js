@@ -1,5 +1,3 @@
-Menu-toggle.js
-
 // File: assets/js/menu-toggle.js
 // Chứa logic để bật/tắt menu chính và các submenu.
 // Hàm initializeMenuSystem sẽ được gọi bởi footer.js sau khi header.html được load.
