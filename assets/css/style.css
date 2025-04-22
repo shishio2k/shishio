@@ -588,6 +588,7 @@ pre::-webkit-scrollbar-thumb {
         display: flex; /* Show the menu */
     }
 
+    
     .header.menu-open .menu li:last-child a {
         border-bottom: none;
     }
